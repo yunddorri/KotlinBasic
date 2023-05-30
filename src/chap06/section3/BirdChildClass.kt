@@ -2,12 +2,15 @@ package chap06.section3
 
 open class Bird(var name: String, var wing: Int, var beak: String) {//주생성자, 프로퍼티 선언
 
-    fun fly(){
+    open fun fly(){
         println("Fly")
     }
 }
 
 class Lark(name: String, wing: Int, beak: String) : Bird(name, wing, beak){
+    override fun fly(){
+        println("QuickFly")
+    }
     fun singHigh(){
         println("sing High")
     }
@@ -18,6 +21,11 @@ class Parrot : Bird {
     var language: String
     constructor(name: String, wing: Int, beak: String, language: String) : super (name, wing, beak){
         this.language = language
+    }
+
+    override fun fly(){
+        println("slow Fly")
+        super.fly()
     }
 
     fun speak(){
